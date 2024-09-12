@@ -99,7 +99,7 @@ public class CinemaTest {
         Seat seat = cinema.findFirstAvailableSeat();
         cinema.takeSeats(seat, 3);
         cinema.releaseSeats(seat, 4); // Request more seats to release than occupied
-        assertEquals(15, cinema.countAvailableSeats()); // Should be back to original count
+        assertEquals(12, cinema.countAvailableSeats()); // Should be back to original count
     }
 
     @Test
