@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Cinema {
 
     private Seat[][] seats;
+    private int availableSeats;
 
     /**
      * Construye una sala de cine. Se le pasa como dato un arreglo cuyo tamaño
@@ -38,17 +39,16 @@ public class Cinema {
      * Cuenta la cantidad de seats disponibles en el cine.
      */
     public int countAvailableSeats() {
-        int availableSeats = 0;
         for (int i = 0; i < seats.length; i++) {
             for (int j = 0; j < seats[i].length; j++) {
-                if (seats[i][j] != null && seats[i][j].isAvailable()) {
+                if (seats[i][j].isAvailable()) {
                     availableSeats++;
                 }
             }
         }
-
         return availableSeats;
     }
+
     /**
      * Busca la primera butaca libre dentro de una fila o null si no encuentra.
      */
@@ -206,7 +206,7 @@ public class Cinema {
                         for (int k = j; k < j + releasedSeats; k++) {
                             seats[i][k].takeSeat();
                         }
-                        releasedSeats = 0;
+                        availableSeats = 3;
                     }
 
                     break;
